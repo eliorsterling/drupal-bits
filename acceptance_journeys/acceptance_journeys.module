@@ -49,13 +49,12 @@ function acceptance_journeys_jcarousel_skin_info() {
 /**
  * Implements hook_views_api().
  */
- /*
 function acceptance_journeys_views_api() {
   return array(
-    'api' => '3',
+    'api' => '2',
+    'path' => drupal_get_path('module', 'acceptance_journeys') . '/includes',
   );
 }
-*/
 
 /**
  * Implements hook_init().
