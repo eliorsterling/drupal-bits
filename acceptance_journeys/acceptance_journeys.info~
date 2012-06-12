@@ -1,4 +1,0 @@
-name = Acceptance Journeys
-description = Custom tools for the Acceptance Journeys website.
-core = 7.x
-scripts[] = js/jquery.jcarousel.js
