@@ -1,0 +1,68 @@
+<?php
+/**
+ * @file
+ * A module of custom tools for the Acceptance Journeys website.
+ * Includes Jcarousel slideshow customizations, and a lightbox.
+ */
+ 
+ /**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path 
+ *   Which path of the site we're using to display help
+ * @param arg 
+ *   Array that holds the current path as returned from arg() function
+ */
+function acceptance_journeys_help($path, $arg) {
+  switch ($path) {
+    case "admin/help#acceptance_journeys":
+      return '<p>'.  t("A module of custom tools for the Acceptance Journeys website.") .'</p>';
+      break;
+  }
+} 
+
+
+/**
+ * Implements hook_jcarousel_skin_info().
+ */
+function acceptance_journeys_jcarousel_skin_info() {
+  $skins = array();
+ 
+  $skins['aj'] = array(
+    'title' => t('Acceptance Journeys'),
+    'file' => 'skins/aj/jcarousel-aj.css',
+  );
+  $skins['not-tango'] = array(
+    'title' => t('Testing Skin'),
+    'file' => 'skins/not-tango/jcarousel-tango.css',
+  );
+ 
+  return $skins;
+}
+
+/**
+ * Views code below this line
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function acceptance_journeys_views_api() {
+  return array(
+    'api' => '3',
+  );
+}
+
+/**
+ * Implements hook_init().
+ */
+function acceptance_journeys_init() {
+  // Load javascript on the page in init to help fool caching.
+  drupal_add_js(drupal_get_path('module', 'acceptance_journeys') . '/js/aj.js');
+
+//  $vs_path = drupal_get_path('module', 'acceptance_journeys');
+//  drupal_add_css($vs_path . '/acceptance_journeys.css');
+}
+
